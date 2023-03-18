@@ -119,7 +119,7 @@ function App(props) {
             <Route  onClick={() => {window.location.reload()}} path="/track-order">
               <OrderTrack />
             </Route>
-            <Route path="/" render={() => <FirstLook />} />
+         
             <Route  onClick={() => {window.location.reload()}} path="/catogoriesLanding/:name">
               <CategoriesLanding />
             </Route>
@@ -254,7 +254,7 @@ function App(props) {
             
             <Route  onClick={() => {window.location.reload()}} path="/landing">
               <Landing />
-            </Route>
+            </Route>   <Route path="/" render={() => <FirstLook />} />
           </Switch>
           {showFooter && <Footer />}
 
