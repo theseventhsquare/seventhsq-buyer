@@ -1,5 +1,6 @@
 import React, { createContext, useReducer, useEffect,useContext, useState } from "react";
 
+import Cement from "../src/Components/Landing/Body/Categories/SubCategories/Hardware";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import OrderTrack from "./Components/OrderTrack/OrderTrack";
 import Landing from "./Components/Landing/Landing";
@@ -30,6 +31,7 @@ import Request from "./Components/Request/Request";
 import Profile from "./Components/Profile/Profile";
 import Summery from "./Components/PaymentSummery/Summery"
 import Checkout from "./Components/Cart/Checkout";
+import Checkout_po from "./Components/Cart/Checkout_po";
 import DetailBlog from "./Components/Blog/DetailBlog";
 import ForgotPassword from "./Components/Landing/Login/ForgotPassword";
 import Review from "./Components/Landing/Body/Review";
@@ -52,6 +54,10 @@ import SearchResult from "./Components/SearchResult";
 import success from "./Components/payu/success";
 import Success from "./Components/payu/success";
 import Failure from "./Components/payu/Failure";
+import Order_sum from "./Components/orders/Order_sum";
+import Order_sum_i from "./Components/orders/Order_sum_i";
+import FirstLook from "./Components/LandingNow/FirstLook"; 
+
 
 export const CartContext = createContext();
 const initialState = {
@@ -99,20 +105,21 @@ function App(props) {
     dispatch({ type: "GET_TOTAL" });
     // console.log("Awesome");
   }, [state.item]);
-
+  const showNavbar = window.location.pathname !== '/';
+  const showFooter = window.location.pathname !== '/';
 
   return (
     <div className="App">
      
       <Router forceRefresh={true}>
         <div>
-          <Navbar />
+        {showNavbar && <Navbar />}
 
           <Switch>
             <Route  onClick={() => {window.location.reload()}} path="/track-order">
               <OrderTrack />
             </Route>
-          
+            <Route path="/" render={() => <FirstLook />} />
             <Route  onClick={() => {window.location.reload()}} path="/catogoriesLanding/:name">
               <CategoriesLanding />
             </Route>
@@ -120,8 +127,14 @@ function App(props) {
             <Route  onClick={() => {window.location.reload()}} path={"/product/:id"}>
               <Product />
             </Route>
+            <Route  onClick={() => {window.location.reload()}} path={"/Order_sum_i/:id"}>
+              <Order_sum_i />
+            </Route>
             <Route  onClick={() => {window.location.reload()}} path="/cart">
             <ContextCart />
+            </Route>
+            <Route  onClick={() => {window.location.reload()}} path="/Order_sum">
+            <Order_sum />
             </Route>
             <Route  onClick={() => {window.location.reload()}} path="/login">
               <Login />
@@ -158,12 +171,15 @@ function App(props) {
             </Route>
             <Route  onClick={() => {window.location.reload()}} path="/requests">
               <Request/>
-            </Route>
+            </Route> 
             <Route  onClick={() => {window.location.reload()}} path="/wishlist">
               <Wishlist/>
             </Route>
             <Route  onClick={() => {window.location.reload()}} path="/requestQuotation">
               <RequestQuotation/>
+            </Route>
+            <Route  onClick={() => {window.location.reload()}} path="/Cement">
+            <Cement  />
             </Route>
             <Route  onClick={() => {window.location.reload()}} path="/payu">
               <Payumoney/>
@@ -187,6 +203,7 @@ function App(props) {
             </Route>
 
             {/* all faq links are starts from here */}
+
             <Route  onClick={() => {window.location.reload()}} path="/faq">
               <FAQ />
             </Route>
@@ -231,12 +248,16 @@ function App(props) {
             <Route  onClick={() => {window.location.reload()}} path="/checkout">
               <Checkout/>
             </Route>
+            <Route  onClick={() => {window.location.reload()}} path="/checkout_po">
+              <Checkout_po/>
+            </Route>
             
-            <Route  onClick={() => {window.location.reload()}} path="/">
+            <Route  onClick={() => {window.location.reload()}} path="/landing">
               <Landing />
             </Route>
           </Switch>
-          <Footer />
+          {showFooter && <Footer />}
+
         </div>
       </Router>
      

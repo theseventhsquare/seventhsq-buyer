@@ -2,6 +2,15 @@
 
 /* 
 all fonts are here  */
+.dropdown-item{
+  color: black !important;
+}
+#dropdown-basic{
+
+  width: 30px !important;
+  height: 30px;
+
+}
 @font-face {
   font-family: "Crimson Text";
   font-style: normal;
@@ -19,7 +28,7 @@ all fonts are here  */
   box-sizing: border-box;
 }
 body {
-  font-family: "open sans";
+  font-family: "Poppins", sans-serif;
 }
 
 ul {
@@ -135,36 +144,20 @@ header {
   padding-top: 1%;
   border-radius: 5px 0 0 5px;
   border: none !important;
-  border:0px;
-  
 }
-
 .input__box input {
-  border-radius: 1px 0 0 1px !important;
+  border-radius: 5px 0 0 5px !important;
   width: 500px;
-  font-size: medium;
-  border: none !important;
-  font-family: "open sans";
-}
-#search_box::placeholder {
-  color: #242020;
-  opacity: 1;
-  font-size: medium;
-  font-family:'open sans';
 }
 .fa-search {
-  /* padding-top: 9px ; */
+  padding-top: 9px ;
   padding-inline: 8px;
-  border-radius: 0 1px 1px 0 !important;
+  border-radius: 0 5px 5px 0 !important;
   cursor: pointer;
   left: 0;
-  color: rgb(17, 14, 14);
-  background-color: rgb(255, 255, 255);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none !important;
-
+  color: white;
+  background-color: #555;
+  
 }
 .log-sign {
   padding-top: 2px;
@@ -198,14 +191,21 @@ header {
 .log-sign:hover .menu {
   visibility: visible;
 }
+
+.bottom_acc:hover .menu {
+  visibility: visible;
+}
 /* lower navbar starts from here */
+
+.link-boxes{
+  display: none;
+}
 
 .lowerNavbar {
   margin-top: 4px;
   height: 38px;
   background-color: transparent;
   margin-bottom: 30px !important;
-  font-family: "open sans";
 }
 
 .lowerNavbar ul {
@@ -241,7 +241,7 @@ header {
 .lowerNavbar a {
   color: rgb(17, 17, 17);
   text-decoration: none;
-  font-size: 15px;
+  font-size: 13px;
   display: block;
   padding: 0 0.75em;
   font-weight: 400;
@@ -298,6 +298,8 @@ header {
 .lowerNavbar li:hover .menu-sub {
   display: block;
 }
+
+
 
 .menu-sub ul {
   margin-left: 0px;
@@ -594,6 +596,10 @@ footer {
 } */
 
 @media (max-width: 920px) {
+  .product .img-container img {
+    height: 250px !important;
+    width: 300px !important;
+}
   .mobileBottomNav {
 
     display: flex;
@@ -714,15 +720,27 @@ footer {
     height: 100vh;
     
   }
-
+  .homeslider{
+    display: none;
+  }
+  .link-boxes{
+    display: flex  !important;
+  }
+  .menu-main{
+    display: none !important;
+  }
   .lowerNavbar ul {
+
     list-style: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 130px;
+
   }
 
   .lowerNavbar li:hover a {
+    display: none !important;
     color: rgb(255, 255, 255);
   }
 
@@ -757,6 +775,9 @@ footer {
     left: 0%;
   }
   .flooring {
+    left: 0px;
+  }
+  .Modular {
     left: 0px;
   }
   .menu-sub h4 {

@@ -1,46 +1,173 @@
 /* review box data starting from here */
 .review .box-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:1.5rem;
+}
+
+.review .box-container .box{
+  flex:1 1 30rem;
+  text-align: center;
+  border:.1rem solid rgba(0,0,0,.1);
+  border-radius: .5rem;
+  background:#f9f9f9;
+  padding:2rem;
+}
+
+.review .box-container .box img{
+  border-radius: 50%;
+  object-fit: cover;
+  height:15rem;
+  width:15rem;
+  margin:1rem 0;
+}
+
+.review .box-container .box h3{
+  font-size: 2.5rem;
+  color:var(--black);
+}
+
+.review .box-container .box p{
+  font-size: 1.6rem;
+  color:#666;
+  padding:1rem 0;
+}
+
+.review .box-container .box .stars i{
+  color:var(--orange);
+  font-size: 2rem;
+}
+.review-wrapper{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 10px;
+  row-gap: 1em;
+  }
+
+
+  .grid_wrap_review{
+    
+  width: 85%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: auto;
+    
+  grid-gap: 5pt 40pt;
+
+  }
+
+.review_card{
+background: rgba(0,0,0,0.1);
+padding: 3pt;
+margin: 2pt;
+display: flex;
+align-items: center;
+}
+.card{
+  width:880px;
+}
+
+.review_card_1st_child{
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+}
+
+.review_body{
+
+font-size: 14pt;
+
+}
+
+.circle{
+
+width: 60pt;
+background: rgba(0,0,0,0.5);
+height: 60pt;
+border-radius: 50%;
+margin-right: 15pt;
+
+}
+.btn{
+  width: 150px;
+}
+
+#inputEmail3::placeholder{
+font-size: large;
+}
+#inputEmail3{
+  font-size: large;
+  }
+#inputPassword3::placeholder{
+font-size: large;
+}
+
+#inputPassword3{
+  font-size: large;
+  }
+.ww-wrapper {
+  display: inline-block;
+}
+.ww-wrapper * {
+  float: right;
+}
+.star {
+  display: none;
+}
+.star_lable {
+  font-size: 30px;
+}
+
+.star:checked ~ label {
+  color: #FF9529;
+}
+.review {
+  width: 100% !important;
+}
+.heading{
+  font-family:"crimson text";
+  font-size:40px;
+}
+.subheading{
+  font-family:"open sans";
+  font-size:25px;
+  margin-bottom:10px;
+}
+/*
+label:hover,
+label:hover ~ label {
+  color: red;
+}
+*/
+/*
+input:checked ~ label:hover,
+input:checked ~ label:hover ~ label {
+  color: lime !important;
+}
+*/
+@media screen and (max-width: 600px) {
+  .review_card {
+    width: 80%;
     display: flex;
-    flex-wrap: wrap;
-    gap:1.5rem;
+    flex-direction: column;
+    margin-bottom: 20px;
+    flex: 1 !important;
   }
-  
-  .review .box-container .box{
-    flex:1 1 30rem;
-    text-align: center;
-    border:.1rem solid rgba(0,0,0,.1);
-    border-radius: .5rem;
-    background:#f9f9f9;
-    padding:2rem;
-  }
-  
-  .review .box-container .box img{
-    border-radius: 50%;
-    object-fit: cover;
-    height:15rem;
-    width:15rem;
-    margin:1rem 0;
-  }
-  
-  .review .box-container .box h3{
-    font-size: 2.5rem;
-    color:var(--black);
-  }
-  
-  .review .box-container .box p{
-    font-size: 1.6rem;
-    color:#666;
-    padding:1rem 0;
-  }
-  
-  .review .box-container .box .stars i{
-    color:var(--orange);
-    font-size: 2rem;
-  }
-  .review-wrapper{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 10px;
-    row-gap: 1em;
-    }
-  
+  .review {
+    width: 100% !important;
+ }
+  .card {
+    width: 100% !important;
+ }
+ .heading{
+  font-family:"crimson text";
+  font-size:30px !important;
+}
+ .subheading{
+  font-family:"open sans";
+  font-size:20px;
+  margin-bottom:10px;
+}
+}

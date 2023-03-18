@@ -10,43 +10,43 @@ function Wood(props) {
     return (
         <div className="categorySection">
          
-          <h1 className="text-center mt-5 pt-4">Wood</h1>
+          <h1 className="text-center mt-5 pt-4">Boards & Sheets</h1>
 
         <div className="categorySectionOptions">
           <div className="categorySectionItems slide">
             <img
               src={LOGS}
               alt=""
-              onClick={()=>props.handletype('Wood Logs')}
+              onClick={()=>props.handletype('Plywood')}
             />
-            <h5>Wood Logs</h5>
+            <h5>Plywood</h5>
             {/* <p>1212 pieces</p> */}
           </div>
           <div className="categorySectionItems slide">
             <img
               src={VM}
               alt=""
-              onClick={()=>props.handletype('Veneer & Mica')}
+              onClick={()=>props.handletype('Medium Density Fibreboard (MDF)')}
             />
-            <h5>Veneer & Mica</h5>
+            <h5>Medium Density Fibreboard (MDF)</h5>
             {/* <p>1212 pieces</p> */}
           </div>
           <div className="categorySectionItems slide">
             <img
               src={BB}
               alt=""
-              onClick={()=>props.handletype('Blockboard')}
+              onClick={()=>props.handletype('High Density Fibreboard (HDF)')}
             />
-            <h5>Blockboard</h5>
+            <h5>High Density Fibreboard (HDF)</h5>
             {/* <p>1212 pieces</p> */}
           </div>
           <div className="categorySectionItems slide">
             <img
               src={PB}
               alt=""
-              onClick={()=>props.handletype('Particleboard')}
+              onClick={()=>props.handletype('Oriented Strand Board (OSB)')}
             />
-            <h5>Particleboard</h5>
+            <h5>Oriented Strand Board (OSB)</h5>
             {/* <p>1212 pieces</p> */}
           </div>
           <div className="categorySectionItems slide">

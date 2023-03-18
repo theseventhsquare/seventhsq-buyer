@@ -1,18 +1,29 @@
-import React from "react";
+import React,{ useState, useEffect } from "react";
 import "./Contact.css";
 import axios from "axios";
 import ContactQuotation from "./Contactcategories";
+import ContactQuotation2 from "./Contactcategories_copy";
+import { Helmet } from 'react-helmet';
+import Swal from 'sweetalert2'
 
-import {toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-toast.configure()
+
+
 // import { useState, useEffect } from 'react';
 
-// const [message,setmessage]=useState('')
-const notify = ()=>{
- 
-  // Calling toast method by passing string
-  toast('Hello Geeks')
+
+function Contact() {
+  const [EEmail,setEmail]=useState('')
+
+  
+const onChangeHandler = (fieldName, value)=>{
+
+
+  var email = document.getElementById("email").value;
+  if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)){
+    setEmail(value);
+  }
+
+  
 }
 
 var status="";
@@ -26,14 +37,21 @@ const contact_request=async(e)=>{
 // if(name=='message'){
 //   setmessage(value)
 // }
+
 var name = document.getElementById("name").value;
-var email = document.getElementById("email").value;
+var tempemail = document.getElementById("email").value; 
+var date = new Date().toLocaleString()
+var emaill="";
+if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(tempemail)){
+  emaill = document.getElementById("email").value;
+}
 var message = document.getElementById("message").value;
 console.log(message)
   var bodyFormData = new FormData();
   bodyFormData.append('Name', name)
-  bodyFormData.append('email', email)
+  bodyFormData.append('email', emaill)
   bodyFormData.append('message',message)
+  bodyFormData.append('date',date)
 
   axios({
     method: "post",
@@ -41,14 +59,31 @@ console.log(message)
     data: bodyFormData,
     headers: { "Content-Type": "multipart/form-data" },
   })
+  
     .then(function (response) {
-      //handle success
-      console.log(response);
 
+      Swal.fire({
+        icon: 'success',
+        title: ' Thank you',
+        text: 'Message Recieved',
+        
+      })
+      //handle success
+      // toast('Here is your toast.');
+      // console.log(response);
+      
+      // NotificationManager.info('Info message');
+      console.log(response);
     })
     .catch(function (response) {
       //handle error
       console.log(response);
+      Swal.fire({
+        icon: 'error',
+        title: 'Invaild...',
+        text: 'Please check the details added',
+        // footer: '<a href="">Why do I have this issue?</a>'
+      })
 
     });
 
@@ -60,101 +95,43 @@ console.log(message)
 }
 
 
-function Contact() {
   return (
     <div>
+      <Helmet>
+    <title>Customer Support | Seventh Square</title>
+  </Helmet>
       <div className="upperSection">
         <div class="skills">
           <div class="container">
             <div class="text">
               <h2>
-                HOW CAN WE <span>HELP</span> YOU ?
+              <span style={{fontFamily:"crimson text"}}>CONTACT US</span>
               </h2>
               
             </div>
 
-            {/* <div class="skill-card">
-              <div class="card">
-                <i class="fas fa-pencil-ruler"></i>
-                <h4>Shopping</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
-                  aliquid, ipsam.
-                </p>
-              </div>
-
-              <div class="card">
-                <i class="fas fa-magic"></i>
-                <h4>Bussiness</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
-                  aliquid, ipsam.
-                </p>
-              </div>
-
-              <div class="card">
-                <i class="fab fa-sketch"></i>
-                <h4>Delivery</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
-                  aliquid, ipsam.
-                </p>
-              </div>
-
-              <div class="card">
-                <i class="fab fa-bitbucket"></i>
-                <h4>Quotation</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
-                  aliquid, ipsam.
-                </p>
-              </div>
-
-              <div class="card">
-                <i class="fas fa-chart-line"></i>
-                <h4>Froud</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
-                  aliquid, ipsam.
-                </p>
-              </div>
-
-              <div class="card">
-                <i class="fas fa-file-code"></i>
-                <h4>Other</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
-                  aliquid, ipsam.
-                </p>
-              </div>
-            </div> */}
-          
+           
           </div>
         </div>
-        <div class="contactQuotation">
+        <div class="contactQuotation" >
+        <div className="container">
          <ContactQuotation/>
+         </div>
+
+      <h3 className='text-center ' style={{    marginTop: "20px"}}>Want to reach out to us directly</h3>
+<div className="container">
+
+         <ContactQuotation2/>
+</div>
       </div>
-      <h3 className='text-center mt-5 pt-5'>Not related to above categories ? Contact Below</h3>
       </div>
      
       <div class="contactPage">
         <section class="container" id="contact">
-          {/* <div class="social">
-            <a href="/">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="/">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="/">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="/">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </div> */}
+         
 
           <div class="contact-box">
+       
             <div class="c-heading">
               <h1>Get In Touch</h1>
               <p>Call Or Email Us Regarding Question Or Issues</p>
@@ -163,14 +140,15 @@ function Contact() {
             <div class="c-inputs">
               <form>
                 <input type="text" name="name" id="name" placeholder="Full Name" />
-                <input type="email" name="email" id="email" placeholder="Example@gmail.com" />
-                <textarea name="message" name="message" id="message" placeholder="Write Message"></textarea>
+                <input type="email" name="email" id="email" placeholder="Example@gmail.com"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" onChange={(e)=>{ onChangeHandler("email",e.target.value)}}  required />
+                <textarea name="message" id="message" placeholder="Write Message"></textarea>
 
                 <button onClick={contact_request}>SEND</button>
                 {/* <button onClick={notify}>Click Me!</button> */}
               </form>
             </div>
           </div>
+
 
           <div class="map">
             <iframe
@@ -184,7 +162,7 @@ function Contact() {
         </section>
       </div>
       
-    </div>
+    </div>  
   );
 }
 

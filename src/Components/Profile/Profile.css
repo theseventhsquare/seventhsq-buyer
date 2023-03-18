@@ -1,8 +1,16 @@
+.profile{
+  font-family: "open sans";
+}
 .main-body input{
   font-size: 11px;
+
 }
-.card {
-  position: relative;
+#title_pro{
+  font-family: crimson text !important;
+  font-size: 40px;
+}
+.cardMe {
+  position: relative ;
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -25,5 +33,18 @@
 }
 .profile .card-body a{
   color: blue !important;
+
+}
+
+.edit_add_ok_btn{
+  
+  border: 1px solid;
+  width: fit-content;
+  padding: 3pt 15pt;
+  margin-left: auto;
+  margin-top: 10pt;
+  margin-bottom: 5pt;
+  border-radius: 4pt;
+  cursor: pointer;
 
 }

@@ -2,11 +2,15 @@
 display: flex;
 flex-wrap: wrap;
 max-width: 100%;
-    height: 350px;
-    margin: 10px 60px;
+
+    /* margin: 10px 60px; */
+    flex: 0 1 calc(10% - 8px);
 }
+#alink{
+    margin: 5px;
+  }
 .mainCategoryPanel .item{
-    margin: 0px 30px;
+    margin: 0px 10px;
     width: 100px;
     
 }
@@ -31,6 +35,15 @@ width: 100%;
 display: flex;
 flex-direction: column;
 background-color: rgb(255, 255, 255);
+font-family:  "Crimson Text";
+/* font-weight:30px; */
+
+}
+#min{
+font-size: small !important;
+}
+#htl {
+    font-size: medium;
 }
 .categorySection .categorySectionHeading{
     height: 150px;
@@ -38,6 +51,7 @@ background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: bolder;
 }
 .categorySection .categorySectionHeading h3{
     font-size: 25px;
@@ -50,8 +64,18 @@ background-color: rgb(255, 255, 255);
     justify-content: center;
     align-items: flex-start;
     max-height: 100px;
-   
+
     margin-bottom: 150px;
+    
+}
+.categorySectionOptions2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    max-height: 100px;
+
+    /* margin-bottom: 150px; */
     
 }
 input[type=checkbox] {
@@ -66,7 +90,32 @@ input[type=checkbox]:after {
 }
 
 input[type=checkbox]:checked:after {
-  content: "\2713";
+  content: "\2714";
+}
+.custom-control-label:before{
+    background-color:rgb(141, 140, 140);
+    height: 15px;
+    width: 15px;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+    background-color:black;
+    height: 15px;
+    width: 15px;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after{
+    background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='white' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+    height: 15px;
+    width: 15px;
+}
+.custom-control-input:active~.custom-control-label::before{
+    background-color:green;
+    height: 15px;
+    width: 15px;
+}
+
+/** focus shadow pinkish **/
+.custom-checkbox .custom-control-input:focus~.custom-control-label::before{
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(255, 0, 247, 0.25); 
 }
 /* .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
     border-color: #D7B1D7;
@@ -75,6 +124,21 @@ input[type=checkbox]:checked:after {
   /* .custom-checkbox .custom-control-input:checked~.custom-control-label::before {     background-color: green!important; }  */
 .categorySectionItems{
     margin: 40px 20px;
+}
+.categorySectionItems:hover{
+    cursor: pointer;
+    box-shadow: 0px 6px #EEEEEE;
+    /* border-radius: 20%; */
+    /* width: 150px; */
+    /* border-bottom: 4px solid; */
+
+}
+.categorySectionItems:active :focus{
+    cursor: pointer;
+    box-shadow: 10px 10px 10px 10px #aa2323;
+    border-radius: 30%;
+    width: 110px;
+
 }
 .categorySectionOptions img{
     height: 100px;
@@ -95,18 +159,20 @@ font-weight: 500;
 font-family: Arial, Helvetica, sans-serif;
 }
 .categoryBody{
+    
     margin-top: 5px;
     display: flex;
     flex-direction: row;
 }
 .categoryBody .bodyLeft{
+
     width: 20%;
     height: 100%;
     background-color: rgb(238, 238, 238);
     display: flex;
     flex-direction: column;
-    margin: 0px 15px;
-    padding: 0px 10px ;
+    margin: 0px 5px;
+    padding: 5px 5px ;
 }
 .leftFilterHeading{
     display: flex;
@@ -120,6 +186,7 @@ font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
     font-weight: 600;
 }
+
 .filerBody section{
     display: flex;
     flex-direction: column;
@@ -161,7 +228,7 @@ margin: auto 10px ;
 }
 .bodyRightHeading{
     margin: 10px 10px;
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     background-color: rgb(238, 238, 238);
 }
@@ -205,6 +272,7 @@ margin: initial;
     font-weight: 600;
     margin: 5px;
     color: #444444;
+    word-break: keep-all;
 }
  .item{
     height: 120px;
@@ -215,23 +283,64 @@ margin: initial;
 }
 
 @media (max-width:920px) {
+    .lab2{
+        font-size: 10px !important;
+    }
+    .labname{
+        font-size: 10px !important;
+    }
+    .hrf{
+        display:none;
+    }
+    .maxmin{
+        flex-direction: column;
+    }
+    .filterbutt{
+
+        flex-direction: column;
+    }
+    .filterbuttt{
+        font-size: 10px !important;
+        margin-bottom: 10px !important;
+        width: 100% !important;
+
+    }
+   
+    .bodyRightHeading p {
+        font-size: 10px;
+    }
+    .categoryBody .bodyLeft{
+        /* display: none !important; */
+        width: 30%;
+        height: 100%;
+        background-color: rgb(238, 238, 238);
+        display: flex;
+        flex-direction: column;
+        margin: 0px 5px;
+        padding: 5px 5px ;
+    }
+    .containerr {
+        /* border: 1px solid black; */
+        display: block;
+    }
     .categorySlider{
         display: block;
     }
-    .categorySection{
-        display: none;
-    }
-    .bodyLeft{
+        .categorySection{
+            display: none;
+        }
+    /* .bodyLeft{
         display: none!important;
-    }
+    } */
     .categorySectionOptions{
         display: none;
     }
 .mainCategoryPanel{
-    display: flex !important;
+    display: none;
     flex-direction: row !important;
     width: 100%;
     height: auto;
+    font-family: crimson Text;
 }
 .mainCategoryPanel .item{
     width: auto;
