@@ -56,7 +56,7 @@ function FirstLook() {
             style={{
               fontSize: "28px",
               fontWeight: "500",
-              fontFamily: "crimson text",
+              fontFamily: "Arial ",
             }}
           >
             {" "}
@@ -71,7 +71,7 @@ function FirstLook() {
             justifyContent: "center",
             display: "flex",
             textAlign: "justify",
-            fontFamily: "crimson text",
+            fontFamily: "Arial",
           }}
         >
           {" "}
@@ -82,7 +82,7 @@ function FirstLook() {
             justifyContent: "center",
             display: "flex",
             textAlign: "justify",
-            fontFamily: "crimson text",
+            fontFamily: "Arial",
           }}
         >
           exciting launch offers!
