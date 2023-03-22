@@ -47,7 +47,7 @@ function FirstLook() {
             style={{
               fontWeight: "700",
               fontSize: "56px",
-              fontFamily: "Arial ",
+              fontFamily: "crimson text ",
             }}
           >
             COMING SOON!
@@ -56,7 +56,7 @@ function FirstLook() {
             style={{
               fontSize: "28px",
               fontWeight: "500",
-              fontFamily: "Arial",
+              fontFamily: "crimson text",
             }}
           >
             {" "}
@@ -71,6 +71,7 @@ function FirstLook() {
             justifyContent: "center",
             display: "flex",
             textAlign: "justify",
+            fontFamily: "crimson text",
           }}
         >
           {" "}
@@ -81,6 +82,7 @@ function FirstLook() {
             justifyContent: "center",
             display: "flex",
             textAlign: "justify",
+            fontFamily: "crimson text",
           }}
         >
           exciting launch offers!
@@ -116,18 +118,21 @@ function FirstLook() {
         </button>
       </div>
     </form>
-        <h3
-          style={{
-            justifyContent: "center",
-            display: "flex",
-            textAlign: "justify",
-            marginTop: "30px",
-            fontFamily: "Arial",
-            
-          }}
-        >
-          Selling Building Materials ? Sell with us here :<button onClick={handleButtonClick}>Sell with us here</button>
-        </h3>
+    <h3
+    style={{
+      justifyContent: "center",
+      display: "flex",
+      textAlign: "justify",
+      marginTop: "30px",
+      fontFamily: "Arial",
+    }}
+  >
+    Selling Building Materials ? Sell with us here :
+    <span onClick={handleButtonClick} style={{ backgroundColor: "#F8F8F8", color: "black",marginTop:"-5px", border: "none", padding: "5px 10px", borderRadius: "5px", textDecoration: "none", cursor: "pointer" }}>
+      seller.seventhsq.com
+    </span>
+  </h3>
+  
       </div>
     </div>
   );
