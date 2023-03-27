@@ -120,7 +120,7 @@ function CategoriesLanding(props) {
         city
 
     );
-   console.log(      "https://seller.seventhsq.com/inventory/api/inventory_detail_by_category/" +
+   console.log("https://seller.seventhsq.com/inventory/api/inventory_detail_by_category/" +
    name +
    "/" +
    city)

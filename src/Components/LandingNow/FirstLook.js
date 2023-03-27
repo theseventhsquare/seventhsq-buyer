@@ -2,7 +2,7 @@ import { fontFamily } from "@mui/system";
 
 import axios from 'axios';
 import React, { useState } from 'react';
-
+import { Helmet } from 'react-helmet'; 
 function FirstLook() {
   
   const [email, setEmail] = useState('');
@@ -31,6 +31,12 @@ function FirstLook() {
     }
   return (
     <div style={{ backgroundColor:"#F8F8F8"}}>
+      
+    <Helmet>
+    <title>Seventh Square | E-Commerce Marketplace for Building Materials & Home Improvement products in India</title>
+    {/* The best website for buying Construction material */}
+    <meta name="description" content="Shop for Building Material & Home Improvement Products online with us!" />
+  </Helmet>
       <div className="container row ml-5 "  >
         <div className="col-md-6">
           <img className="mt-5 ml-5"
@@ -108,11 +114,12 @@ function FirstLook() {
             marginLeft: "28%",
             marginTop: "11px",
             fontSize: "16px",
+            fontFamily: "Arial",
           }}
         />
         <button
           className="btn btn-dark" type="submit" 
-          style={{ width: "143px", height: "34px", marginTop: "10px",fontSize: "16px", }}
+          style={{ width: "143px", height: "34px", marginTop: "10px",fontSize: "16px",fontFamily: "Arial", }}
         >
           Get Notified !
         </button>
