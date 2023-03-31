@@ -209,7 +209,7 @@ function CatItem(props) {
      
       <Link to={"/product/" + props.id.toString()} >
         <img
-          src={imagedata}
+          src={"https://seller.seventhsq.com" + imagedata}
           alt={props.name}
         />
       </Link>
