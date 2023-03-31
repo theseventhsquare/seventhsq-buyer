@@ -1,82 +1,29 @@
-import React, { useState,useEffect } from 'react'
-import "./ImageScript"
-import axios from "axios"
-import "./ProductImage.css"
-  function ProductImage(props)  {  
-       const [images,setimages]=useState([])
-       const [bigimage,setbigimage]=useState('')
-       
-       const getimages=async()=>{
-       
-        
-          const res=await fetch(`https://seller.seventhsq.com/inventory/api/picture/${props.image}`);
-          const data= await res.json();
-          console.log("data")
-          console.log(data)
-          setimages(data)
-          setbigimage(data[0].picture)
-          
-          console.log(bigimage);
-      }
+import React, { useState, useEffect } from 'react';
 
-      useEffect(()=>{
-       
-        getimages()
-        },[])
-      
-    // constructor(props) {
-    //   super(props);
-     
-    //   this.state = {
-    //     posts: [],
-    //   };
-    // }
-    // componentDidMount() {
-    //   axios
-    //     .get("https://seller.seventhsq.com/inventory/api/picture/" + this.props.image)
-    //     .then((response) => {
-    //       this.setState({ posts: response.data });
-    //       console.log(response);
-    //       console.log(this.state.posts[1]["picture"])
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });  
-    // }
-    // clickme(smallImg){
-    //   const fullImg = document.getElementById("imagebox");
-    //   fullImg.src = smallImg.src;
-    // }
-    
-        
-        return(
-          <div className="app">
-            <div class="slider">
-                    <div class="product" style={{overflow:"auto !important"}}>
-                    { images.map((curr,index) =>(
-              <div className="details">
-              <div className="big-img">
-              <img value={index} src= { "https://seller.seventhsq.com" + curr["picture"]} onClick={()=>setbigimage(curr["picture"])} alt=""  />
-                   
-                  </div>
-                  
-                  </div>
-            )
-                    )
-            }
-                      
+function ProductImage(props) {
+  const [images, setImages] = useState([]);
+  const [bigImage, setBigImage] = useState('');
 
-                    </div>
-                    <div class="preview">
-                    
-              <img src= { `https://seller.seventhsq.com${bigimage}`} /*onClick={()=>this.clickme()} */alt=""  />    
-           
-                </div>
+  const getImages = async () => {
+    const res = await fetch(`https://seller.seventhsq.com/inventory/api/picture/${props.image}`);
+    const data = await res.json();
+    console.log('data:', data);
+    setImages(data[0]); // set the first element of the data array as the images object
+    setBigImage(data[0].picture1); // set the first image in the images object as the bigImage
+    console.log('bigImage:', bigImage);
+  };
 
-            
-        </div>
-          </div>
-        );
-      }
+  useEffect(() => {
+    getImages();
+  }, []);
 
-export default ProductImage
+  return (
+    <div>
+      {Object.keys(images).map((key) => (
+        <img key={key} src={images[key]} alt="product image" />
+      ))}
+    </div>
+  );
+}
+
+export default ProductImage;
