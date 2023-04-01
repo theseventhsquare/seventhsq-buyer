@@ -102,17 +102,18 @@ export default class ProductImageIndividual extends Component {
       
   }
   
-    componentDidMount() {
-      axios
-        .get("https://seller.seventhsq.com/inventory/api/picture/" + this.props.image)
-        .then((response) => {
-          this.setState({ posts: response.data });
-         
-         
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+componentDidMount() {
+    axios
+      .get("https://seller.seventhsq.com/inventory/api/picture/" + this.props.image)
+      .then((response) => {
+        const bigImage = response.data[0].picture1;
+        this.setState({ bigImage });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  
+
 
         const token=localStorage.getItem('token')
       if ( token != undefined)
@@ -125,10 +126,7 @@ export default class ProductImageIndividual extends Component {
         
         return(
           <div>
-              { this.state.posts.slice(0, 1).map(curr =>(
-              <img src= { "https://seller.seventhsq.com" + curr["picture"]} alt=""  />    
-            ))
-            }
+          {this.state.bigImage && <img src={"https://seller.seventhsq.com" + this.state.bigImage} alt="product image" />}
              <ul class="side-icons">
             <span>
             <i class="fas fa-shopping-cart" onClick={async()=>this.state.loggedin==false?this.addtolocal(this.props.product):await this.addtocart(this.props.product)}></i>
