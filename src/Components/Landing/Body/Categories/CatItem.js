@@ -65,8 +65,8 @@ function CatItem(props) {
   const getimages = async () => {
     const res = await fetch(`https://seller.seventhsq.com/inventory/api/picture/${props.id}`);
     const data = await res.json();
-
-    setimage(data[0]?.picture);
+    console.log(data)
+    setimage(data[0]?.picture1);
 
   }
 
