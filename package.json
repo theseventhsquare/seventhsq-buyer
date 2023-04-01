@@ -38,9 +38,11 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-share": "^4.4.0",
+    "react-slick": "^0.29.0",
     "react-toastify": "^8.1.0",
     "reactstrap": "^9.0.1",
     "routines": "^0.3.0",
+    "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.1.10",
     "universal-cookie": "^4.0.4",
     "web-vitals": "^1.1.2"
