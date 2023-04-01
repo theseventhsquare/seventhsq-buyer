@@ -14,7 +14,7 @@ function FirstLook() {
   
    
     try {
-      const response = await axios.post('http://localhost:8000/api/subscribe/', { email });
+      const response = await axios.post('https://api.seventhsq.com/subscribe/', { email });
       console.log(response.data);
       // TODO: Handle successful submission
     } catch (error) {
@@ -101,11 +101,12 @@ function FirstLook() {
           type="email"
           class="form-control"
           value={email}
+          name={email}
           placeholder="Enter Email"
           aria-label="Search Your Product"
           aria-describedby="button-addon2"
           onChange={(e) => setEmail(e.target.value)}
-          name=""
+          
           style={{
             width: "35%",
             justifyContent: "center",
