@@ -118,12 +118,21 @@ function FirstLook() {
             fontFamily: "Arial",
           }}
         />
-        <button
-          className="btn btn-dark" type="submit" 
-          style={{ width: "143px", height: "34px", marginTop: "10px",fontSize: "16px",fontFamily: "Arial", }}
+      <button
+          className="btn btn-dark"
+          type="submit"
+          style={{
+            width: "143px",
+            height: "34px",
+            marginTop: "10px",
+            fontSize: "16px",
+            fontFamily: "Arial",
+            textTransform: "none" // set text-transform to none
+          }}
         >
-          Get Notified !
+          Get Notified!
         </button>
+
       </div>
     </form>
     <h3
