@@ -130,7 +130,7 @@ function FirstLook() {
             textTransform: "none" 
           }}
         >
-          Get Notified.!
+          Get Notified!
         </button>
 
       </div>
