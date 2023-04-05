@@ -127,7 +127,7 @@ function FirstLook() {
             marginTop: "10px",
             fontSize: "16px",
             fontFamily: "Arial",
-            textTransform: "none" // set text-transform to none
+            textTransform: "none" 
           }}
         >
           Get Notified!
