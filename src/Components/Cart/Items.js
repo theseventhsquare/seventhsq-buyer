@@ -38,7 +38,7 @@ var_id
   const getimages=async()=>{
       const res=await fetch(`https://seller.seventhsq.com/inventory/api/picture/${item}`);
       const data= await res.json(); 
-      setimage(data[0].picture); 
+      setimage(data[0].picture1); 
   }
   const invalid=()=>{
     window.alert('Login First!')
