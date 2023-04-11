@@ -6,10 +6,10 @@ import { Helmet } from 'react-helmet';
 function FirstLook() {
   
   const [email, setEmail] = useState('');
-  
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (window.confirm('Are you sure you want to submit this form?')) {
+    
       // Submit the form data to backend API here
   
    
@@ -21,7 +21,8 @@ function FirstLook() {
       console.error(error);
       // TODO: Handle error
     }
-  }
+  
+  setIsSubmitted(true);
   setEmail('');
 };
 
@@ -135,6 +136,18 @@ function FirstLook() {
 
       </div>
     </form>
+    <div  style={{
+     
+    marginLeft:"500px",
+      marginTop: "10px",
+      fontSize: "16px",
+      fontFamily: "Arial",
+      textTransform: "none" 
+    }}>
+    {isSubmitted && (
+      <p style={{ color: "green" }}>Thank you for submitting the form!</p>
+    )}
+    </div>
     <h3
     style={{
       justifyContent: "center",
