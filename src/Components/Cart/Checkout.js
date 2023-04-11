@@ -223,21 +223,21 @@ function Checkout() {
       },
     };
 
-    axios.get("https://api.seventhsq.com/orders/addresses", config).then(
-      (res) => {
-        setaddress(res.data[0]);
-        setplotno(res.data[0].apartment_address);
-        setstreet(res.data[0].street_address);
+    // axios.get("https://api.seventhsq.com/orders/addresses", config).then(
+    //   (res) => {
+    //     setaddress(res.data[0]);
+    //     setplotno(res.data[0].apartment_address);
+    //     setstreet(res.data[0].street_address);
 
-        setcity(res.data[0].city);
-        setstate(res.data[0].state);
-        setzip(res.data[0].zip);
-        console.log(res.data[0]);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    //     setcity(res.data[0].city);
+    //     setstate(res.data[0].state);
+    //     setzip(res.data[0].zip);
+    //     console.log(res.data[0]);
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   }
+    // );
   };
   ///////////////////////////////////for getting user data
   const getuserdata = async () => {
