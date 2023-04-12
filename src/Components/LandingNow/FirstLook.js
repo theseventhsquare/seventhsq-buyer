@@ -138,7 +138,7 @@ function FirstLook() {
     </form>
     <div  style={{
      
-    marginLeft:"500px",
+      marginLeft:"500px",
       marginTop: "10px",
       fontSize: "16px",
       fontFamily: "Arial",
