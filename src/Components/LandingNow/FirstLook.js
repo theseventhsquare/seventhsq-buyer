@@ -138,14 +138,14 @@ function FirstLook() {
     </form>
     <div  style={{
      
-      marginLeft:"500px",
       marginTop: "10px",
       fontSize: "16px",
       fontFamily: "Arial",
       textTransform: "none" 
     }}>
     {isSubmitted && (
-      <p style={{ color: "green" }}>Thank you for submitting the form!</p>
+      <p style={{ color: "green",
+      marginLeft:"500px", }}>Thank you for submitting the form!</p>
     )}
     </div>
     <h3
