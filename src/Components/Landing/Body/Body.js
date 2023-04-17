@@ -77,7 +77,7 @@ export default class Body extends Component {
          <Helmet>
     <title>Home | Seventh Square</title>
     {/* The best website for buying Construction material */}
-    <meta name="description" content=" The best website for buying Construction material" />
+    <meta name="description" content="Shop for Building Material & Home Improvement Products online with us!" />
   </Helmet>
         {/* <HomeSlider2/> */}
         <HomeSlider />
