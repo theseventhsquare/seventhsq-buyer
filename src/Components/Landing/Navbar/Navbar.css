@@ -168,9 +168,10 @@ header {
 }
 .log-sign a {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap:0 0.5em ;
   font-size: 20px;
   color: #e6dfdf !important;
 }
@@ -594,6 +595,10 @@ footer {
     transform: translateY(0px);
   }
 } */
+
+.region{
+  display:flex;
+}
 
 @media (max-width: 920px) {
   .product .img-container img {

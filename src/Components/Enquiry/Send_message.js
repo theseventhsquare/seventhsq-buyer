@@ -73,7 +73,7 @@ function Send_message(props) {
 
     };
     // console.log(config);
-    console.log((`https://api.seventhsq.com/enquiry/seller/get/response/${userdata?.id}/buyer/${description}/${props.now.id}`));
+    // console.log((`https://api.seventhsq.com/enquiry/seller/get/response/${userdata?.id}/buyer/${description}/${props.now.id}`));
     
     const res = await fetch(`https://api.seventhsq.com/enquiry/seller/get/response/${userdata?.id}/buyer/${description}/${props.now.id}`)
     // window.alert('Message Sent')

@@ -306,8 +306,8 @@ function Navbar() {
                     </li>
 
                     <li class="log-sign">
-                      <a to="/">
-                        <FaMapMarkerAlt />
+                      <a to="/" className="region">
+                      <FaMapMarkerAlt />
                         <select className="form-select" onChange={handlecity}>
                           {city ? (
                             <option id={city.toString()} value={city.toString}>
@@ -318,7 +318,7 @@ function Navbar() {
                               Select Region
                             </option>
                           )}
-                          <option id="Select Region" value="Select Region">
+                          <option id="Select Region"  value="Select Region">
                             Select Region
                           </option>
                           <option id="Andhra Pradesh" value="Andhra Pradesh">
