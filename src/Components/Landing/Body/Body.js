@@ -1,318 +1,491 @@
-import React, { Component } from "react";
-import axios from "axios";
-import "./Body.css";
-import "./MainProduct.css";
-import Brands from "./Brands";
-import Blogs from "./Benefits/Blog/Blogs";
-import "./Script";
-import { Helmet } from 'react-helmet';
-import Slider from "./Slider";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import Services from "./Services/Services";
-import Benefits from "./Benefits/Benefits";
-import { catItem } from "./Categories/CategoriesItem";
-// import "./MainProduct.css";
-import Categories from "./Categories/Categories";
-import Testimonial from "./Testimonial";
-import ProductImage from "../../Product/ProductImage";
-import ProductImageIndividual from "./ProductImageIndividual";
-import HomeSlider from "./HomeSlider";
-import HomeSlider2 from "./HomeSlider2";
-import MostPopularCarousel from "./MostPopularCarousel";
-import LatestCarousel from "./LatestCarousel";
-import RecentlyViewedCarousel from "./RecentlyViewed";
-import { FaCartArrowDown } from "react-icons/fa";
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import {
+  Box,
+  Typography,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  CardActionArea,
+} from "@mui/material";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+// import imageOne from "./slider_images/Landing Page - Slider_1.png";
+// import imageTwo from "./slider_images/Landing Page - Slider_2.png";
+// import imageThree from "./slider_images/Landing Page - Slider_3.png";
+import cement from "../../../images/categories/cement.png";
+import bricks from "../../../images/categories/bricks.png";
+import steel from "../../../images/categories/steel.png";
+import aggregates from "../../../images/categories/aggregates.png";
+import sanit from "../../../images/categories/sanit.png";
+import electricals from "../../../images/categories/electricals.png";
+import hvac from "../../../images/categories/hvac.png";
+import flooring from "../../../images/categories/flooring.png";
+import hardwaree from "../../../images/categories/hardwaree.png";
+import roofing from "../../../images/categories/roofing.png";
+import doors from "../../../images/categories/doors.png";
+import boards from "../../../images/categories/boards.png";
+import modular from "../../../images/categories/modular.png";
+import bk from "../../../images/categories/bk.png";
 
-// import { post } from "jquery";
-export default class Body extends Component {
-  constructor(props) {
-    super(props);
+import air from "../../../images/recommand/air.png";
+import bathing from "../../../images/recommand/bathing.png";
+import bathroom from "../../../images/recommand/bathroom.png";
+import geometric from "../../../images/recommand/geometric.png";
+// import door from "../../../images/recommand/door.png";
 
-    this.state = {
-      best: [],
-      vieww: [],
-      latest: [],
-      recent: [],
-      posts: [],
-      loggedin: false,
-    };
+import kelly from "../../../images/popular/kelly.png";
+import three from "../../../images/popular/three.png";
+import mercury from "../../../images/popular/mercury.png";
+import stable from "../../../images/popular/stable.png";
+
+import supersavingOne from "../../../images/superSavings/supersavingOne.png";
+import supersavingTwo from "../../../images/superSavings/supersavingTwo.png";
+import supersavingThree from "../../../images/superSavings/supersavingThree.png";
+import bestSelling from "../../../images/superSavings/bestSelling.png";
+import bannerOne from "../../../images/bannerOne.png";
+import blogOne from "../../../images/blogOne.png";
+import bannerTwo from "../../../images/bannerTwo.png";
+import brandOne from "../../../images/brandOne.png";
+import brandTwo from "../../../images/brandTwo.png";
+
+const BodyData = () => {
+  const images = [
+    cement,
+    bricks,
+    steel,
+    aggregates,
+
+    electricals,
+    hvac,
+    flooring,
+    hardwaree,
+    roofing,
+    doors,
+    boards,
+    modular,
+    cement,
+    sanit,
+  ];
+  const groupSize = 7; // Number of images to display in each group
+
+  const groups = [];
+  for (let i = 0; i < images.length; i += groupSize) {
+    const group = images.slice(i, i + groupSize);
+    groups.push(group);
   }
 
-  componentDidMount() {
-    let city = localStorage.getItem("city");
+  const recommandImage = [air, bathing, bathroom, geometric, bathing];
 
-    console.log(`city${city}`);
+  const groupSizeRecommand = 5; // Number of images to display in each group
 
-    city
-      ? axios
-          .get(
-            `https://seller.seventhsq.com/inventory/api/inventory_detail_by_location/${city}`
-          )
-          .then(
-            (response) => {
-              this.setState({ posts: response.data,best: response.data,vieww: response.data,latest: response.data,recent: response.data});
-              // console.log(this.state.posts.sort((a, b) => a['id'] - b['id']).reverse());
-            },
-            (err) => {
-              console.log(err);
-            }
-          )
-      : axios
-          .get("https://seller.seventhsq.com/inventory/api/")
-          .then((response) => {
-            this.setState({ posts: response.data });
-            const sorted = this.state.posts
-            console.log("sorted");
-            console.log(sorted);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+  const groupsRecommand = [];
+  for (let i = 0; i < recommandImage.length; i += groupSizeRecommand) {
+    const group = recommandImage.slice(i, i + groupSizeRecommand);
+    groupsRecommand.push(group);
   }
-  render() {
-    return (
-      <div className="everything">
 
-        
-         <Helmet>
-    <title>Home | Seventh Square</title>
-    {/* The best website for buying Construction material */}
-    <meta name="description" content="Shop for Building Material & Home Improvement Products online with us!" />
-  </Helmet>
-        {/* <HomeSlider2/> */}
-        <HomeSlider />
+  return (
+    <div>
+      {/* <Carousel showThumbs={false}>
+        <div>
+          <img src={imageOne} alt="Image 1" />
+        </div>
+        <div>
+          <img src={imageTwo} alt="Image 2" />
+        </div>
+        <div>
+          <img src={imageThree} alt="Image 3" />
+        </div>
+      </Carousel> */}
 
-        <div class="title">
-          <span class="h1">Categories</span>
-          <hr
-            style={{
-              color: "#000000",
-              backgroundColor: "#000000",
-              width: 600,
-              height: 2.0,
-              borderColor: "#000000",
-              margin: "auto",
-              marginBottom: 20,
-            }}
-          />
-        </div>
+      <Box>
+        <img
+          src={bk}
+          alt="Image 3"
+          style={{ width: "100%", height: "200px" }}
+        />
+      </Box>
 
-        {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> */}
-        <div class="containerr">
-          <div class="cardicon">
-            {catItem.map((curItem) => {
-              return (
-                <Link id="alink" style={{ paddingBottom: "5px"}}
-                  to={
-                    "/catogoriesLanding/" + curItem.title.split(" ").join("_")
-                  }
-                >
-                  <div
-                    class="card"
-                    style={{
-                      height: "120px",
-                      width: "100px",
-                      // borderRadius: "20px",
-                      fontFamily: "open sans",
-                      width: "80px",
-                      padding: "1px",
-                    }}
-                  >
-                    <div
-                      class="card-body"
-                      style={{ height: "100px", padding: "1px" }}
-                    >
-                      <div
-                        className="item"
-                        key={curItem.id}
-                        style={{ width: "70px" }}
-                      >
-                        <img
-                          src={curItem.image.default}
-                          alt="itemimage"
-                          class="card-img-top"
-                          style={{ width: "100px" }}
-                        />
-                        <span
-                          className="card-title"
-                        style={{ marginRight: "5%",fontSize: "10px" ,marginBotton:"10px"}}
-                        >
-                          {curItem.title}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-            <div className="catBody">
-      
-        </div>
-        <div className="container"  style={{width:"100%",justifyContent: "center"}}>
-          <Categories />
-        </div>
-
-        <Benefits />
-        <section class="section products">
-          <div class="title">
-            <span class="h1 my-2">Best Selling</span>
-            <div class="my-2">
-              <hr
-                style={{
-                  color: "#000000",
-                  backgroundColor: "#000000",
-                  width: 600,
-                  height: 2.0,
-                  borderColor: "#000000",
-                  margin: "auto",
-                  marginBottom: 40,
-                }}
-              />
-            </div>
-            <div class="product-layout" >
-              {this.state.posts.sort((a, b) => b['mostsells'] - a['mostsells']).slice(0, 12).map((product, index) => (
-                 <Link to={"/product/" + product.id.toString()}>
-                 <div class={"product my-2 Mostpopulardiv ml-5"} key={product.id}>
-                   <div class="card-body">
-                     <div class="img-container shadow">
-                       <ProductImageIndividual image={product.id.toString()} />
-                      
-                     </div>
-                     <div
-                       style={{
-                         display: "flex",
-                         flexDirection: "column",
-                         textAlign: "left",
-                       }}
-                       class="bottom shadow"
-                     >
-                       <p
-                         style={{
-                           fontSize: 15,
-                           textAlign: "left",
-                           color: "black",
-                         }}
-                       >
-                         {product.name}
-                       </p>
-                       <p style={{ fontSize: 13, textAlign: "left" }}>
-                         {product.category} {'>'} {product.subCategory}
-                       </p>
-                       {/* <p style={{fontSize:15,textAlign: "left"}}>{product.subCategory}</p> */}
-   
-                       <div class="price">
-                         {/* <span
-                           style={{
-                             fontSize: 20,
-                             fontFamily: "Times new roman",
-                             fontWeight: "bold",
-                           }}
-                         >
-                           ₹{product.sellingPrice}
-                         </span> */}
-                         <div class="product-price">
-                           <p class="last-price">
-                             <span
-                               style={{
-                                 fontSize: 15,
-                                 fontFamily: "times new roman",
-                                 // fontWeight: "bold",
-                                 color: "grey",
-                               }}
-                             >
-                               ₹ {product.markedPrice}{" "}
-                             </span>
-                             &nbsp;&nbsp;
-                           </p>
-                           <p class="new-price">
-                             <span
-                               style={{
-                                 fontSize: 15,
-                                 fontFamily: "times new roman",
-                                 // fontWeight: "bold",
-                               }}
-                             >
-                               <i class="fa-solid fa-indian-rupee-sign"></i> ₹
-                               {product.sellingPrice} {"per"} {product.qtyUnit}{" "}
-                               <span style={{ color: "grey" }}>
-                                 {" "}
-                                 ({product.discount}% OFF)
-                               </span>
-                             </span>
-                           </p>
-                         </div>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </Link>
+      <Box style={{ padding: "30px", height: "320px" }}>
+        <Typography style={{ fontSize: "16px", fontWeight: "600" }}>
+          Shop Popular Categories
+        </Typography>
+        <Carousel
+          showThumbs={false}
+          showArrows={true}
+          emulateTouch={true} // Allow swiping on mobile
+        >
+          {groups.map((group, groupIndex) => (
+            <div key={groupIndex} style={{ display: "flex", height: "300px" }}>
+              {group.map((image, imageIndex) => (
+                <div key={imageIndex} style={{ flex: "1", padding: "5px" }}>
+                  <img
+                    src={image}
+                    alt={`Image ${groupIndex * groupSize + imageIndex + 1}`}
+                  />
+                </div>
               ))}
             </div>
-          </div>
-        </section>
-        {/* <section className="section">
-        <img className="offerImage" src="" alt=""/>
-      </section> */}
-        <section class="section products" style={{ width: "100%" }}>
-          <div class="title">
-            <span class="h1 my-2">Recently Viewed</span>
-            <hr
-              style={{
-                color: "#000000",
-                backgroundColor: "#000000",
-                width: 600,
-                height: 2.0,
-                borderColor: "#000000",
-                margin: "auto",
-                marginBottom: 40,
-              }}
-            />
-          </div>
+          ))}
+        </Carousel>
+      </Box>
 
-          <RecentlyViewedCarousel items={this.state.posts} />
-        </section>
-        <section class="section products">
-          <div class="title">
-            <span class="h1 my-2">Most Popular</span>
-            <hr
-              style={{
-                color: "#000000",
-                backgroundColor: "#000000",
-                width: 600,
-                height: 2.0,
-                borderColor: "#000000",
-                margin: "auto",
-                marginBottom: 20,
-              }}
-            />
-          </div>
-        </section>
-        <MostPopularCarousel items={this.state.posts} />
-        <section class="section products">
-          <div class="title">
-            <span class="h1 my-2">Latest Added</span>
-            <hr
-              style={{
-                color: "#000000",
-                backgroundColor: "#000000",
-                width: 600,
-                height: 2.0,
-                borderColor: "#000000",
-                margin: "auto",
-                marginBottom: 40,
-              }}
-            />
-          </div>
-        </section>       
-        <LatestCarousel items={this.state.posts} />
-        <Services />
+      <Box style={{ padding: "30px", height: "400px" }}>
+        <Typography style={{ fontSize: "16px", fontWeight: "600" }}>
+          Recommended for you
+        </Typography>
+        <Carousel
+          showThumbs={false}
+          showArrows={true}
+          emulateTouch={true} // Allow swiping on mobile
+        >
+          {groupsRecommand.map((group, groupIndex) => (
+            <div key={groupIndex} style={{ display: "flex", height: "370px" }}>
+              {group.map((image, imageIndex) => (
+                <div key={imageIndex} style={{ flex: "1", padding: "5px" }}>
+                  <img
+                    src={image}
+                    alt={`Image ${groupIndex * groupSize + imageIndex + 1}`}
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+        </Carousel>
+      </Box>
+      <Box style={{ padding: "30px", height: "350px" }}>
+        <Typography style={{ fontSize: "16px", fontWeight: "600" }}>
+          Explore our Popular Brands
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={3}>
+            <div>
+              {" "}
+              <img src={kelly} alt="kelly" />
+              <Typography
+                style={{ fontSize: "14px", fontWeight: "600" }}
+                gutterBottom>
+                French country looks designed for real life
+              </Typography>
+            </div>
+          </Grid>
+          <Grid item xs={3}>
+            <div>
+              {" "}
+              <img src={three} alt="three" />
+              <Typography
+                style={{ fontSize: "14px", fontWeight: "600" }}
+                gutterBottom>
+                French country looks designed for real life
+              </Typography>
+            </div>
+          </Grid>
+          <Grid item xs={3}>
+            <div>
+              {" "}
+              <img src={mercury} alt="mercury" />
+              <Typography
+                style={{ fontSize: "14px", fontWeight: "600" }}
+                gutterBottom>
+                French country looks designed for real life
+              </Typography>
+            </div>
+          </Grid>
+          <Grid item xs={3}>
+            <div>
+              {" "}
+              <img src={stable} alt="stable" />
+              <Typography
+                style={{ fontSize: "14px", fontWeight: "600" }}
+                gutterBottom>
+                French country looks designed for real life
+              </Typography>
+            </div>
+          </Grid>
+        </Grid>
+      </Box>
 
-        <Brands />
-        <Blogs />
-        <Testimonial />
-      </div>
-    );
-  }
-}
+      <Box style={{ padding: "30px", height: "450px" }}>
+        <Typography style={{ fontSize: "16px", fontWeight: "600" }}>
+          Explore our Popular Brands
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={4}>
+            <div>
+              {" "}
+              <img src={supersavingOne} alt="kelly" />
+            </div>
+          </Grid>
+          <Grid item xs={4}>
+            <div>
+              {" "}
+              <img src={supersavingTwo} alt="three" />
+            </div>
+          </Grid>
+          <Grid item xs={4}>
+            <div>
+              {" "}
+              <img src={supersavingThree} alt="mercury" />
+            </div>
+          </Grid>
+        </Grid>
+      </Box>
+
+      <Box style={{ padding: "30px", height: "380px" }}>
+        <Typography style={{ fontSize: "16px", fontWeight: "600" }}>
+          Best Selling
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+        </Grid>
+      </Box>
+
+      <Box style={{ padding: "30px", height: "380px" }}>
+        <Typography style={{ fontSize: "16px", fontWeight: "600" }}>
+          Latest Added
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+        </Grid>
+      </Box>
+
+      <Box style={{ padding: "30px", height: "170px" }}>
+        <img src={bannerOne} alt="bannerOne" />
+      </Box>
+
+      <Box style={{ padding: "30px", height: "380px" }}>
+        <Typography style={{ fontSize: "16px", fontWeight: "600" }}>
+          Recently Viewed
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+          <Grid item xs={2}>
+            <div>
+              {" "}
+              <img src={bestSelling} alt="bestSelling" />
+            </div>
+          </Grid>
+        </Grid>
+      </Box>
+
+      <Box style={{ padding: "30px", height: "460px" }}>
+      <Typography style={{ fontSize: "16px", fontWeight: "600" }}>
+          Blogs
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={3}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={blogOne}
+                  alt="green iguana"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div" color="orange">
+                  AFFORDABLE HOUSING
+                  </Typography>
+                  <Typography variant="h6" color="text.secondary" fontWeight='600'>
+                  Houston to soon have 50 new residential units for youth leaving foster care
+                  </Typography>
+                  <Typography variant="h6" color="text.secondary">
+                  The Houston Alumni and Youth (HAY) Center has broken ground on its 59,000-sf campus, with completion expected by July 2024.
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+          <Grid item xs={3}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={blogOne}
+                  alt="green iguana"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div" color="orange">
+                  AFFORDABLE HOUSING
+                  </Typography>
+                  <Typography variant="h6" color="text.secondary" fontWeight='600'>
+                  Houston to soon have 50 new residential units for youth leaving foster care
+                  </Typography>
+                  <Typography variant="h6" color="text.secondary">
+                  The Houston Alumni and Youth (HAY) Center has broken ground on its 59,000-sf campus, with completion expected by July 2024.
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+          <Grid item xs={3}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={blogOne}
+                  alt="green iguana"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div" color="orange">
+                  AFFORDABLE HOUSING
+                  </Typography>
+                  <Typography variant="h6" color="text.secondary" fontWeight='600'>
+                  Houston to soon have 50 new residential units for youth leaving foster care
+                  </Typography>
+                  <Typography variant="h6" color="text.secondary">
+                  The Houston Alumni and Youth (HAY) Center has broken ground on its 59,000-sf campus, with completion expected by July 2024.
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+          <Grid item xs={3}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={blogOne}
+                  alt="green iguana"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div" color="orange">
+                  AFFORDABLE HOUSING
+                  </Typography>
+                  <Typography variant="h6" color="text.secondary" fontWeight='600'>
+                  Houston to soon have 50 new residential units for youth leaving foster care
+                  </Typography>
+                  <Typography variant="h6" color="text.secondary">
+                  The Houston Alumni and Youth (HAY) Center has broken ground on its 59,000-sf campus, with completion expected by July 2024.
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        </Grid>
+      </Box>
+
+      <Box style={{ padding: "30px", height: "180px" }}>
+        <img src={bannerTwo} alt="bannerTwo" />
+      </Box>
+
+      <Box style={{ padding: "30px", height: "260px" }}>
+        <Typography style={{ fontSize: "16px", fontWeight: "600" , textAlign:'center' }}>
+        Shop our brands
+        </Typography>
+        <div>
+        <img src={brandOne} alt="brandOne" />
+        </div>
+       <div>
+       <img src={brandTwo} alt="brandTwo" />
+       </div>
+       
+        </Box>
+    </div>
+  );
+};
+
+export default BodyData;

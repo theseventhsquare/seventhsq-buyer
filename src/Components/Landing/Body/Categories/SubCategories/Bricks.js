@@ -1,105 +1,328 @@
-import React from 'react'
-import "../Categories.css";
-import AAC from '../Sub Category Icons/AAC Block.png'
-import Red from '../Sub Category Icons/Red Clay Brick.png'
-import Conc from '../Sub Category Icons/Concrete Block.png'
-import REF from '../Sub Category Icons/Refractory Brick.png'
-import PRO from '../Sub Category Icons/Porotherm Hollow Block.png'
-import ENG from '../Sub Category Icons/Engineering Brick.png'
-import RCC from '../Sub Category Icons/RCC Pole.png'
-function Bricks(props) {
-    return (
-      
-        <div className="categorySection">
-         
-          <h1 className="text-center mt-5 pt-4" style={{fontWeight:600}}>Bricks</h1>
+import React from "react";
+import {
+  Breadcrumbs,
+  Link,
+  Typography,
+  Grid,
+  Box,
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Button,
+  FormControl,
+  Select,
+  MenuItem,
+  InputLabel,
+} from "@mui/material";
+import brick from "../../../../../images/brick.png";
+import BricksFilter from "./BricksFilter";
 
-        <div className="categorySectionOptions ">
-          <div className="categorySectionItems slide">
-            <img
-              src={Red}
-              alt=""
-              onClick={()=>props.handletype('Red Clay Brick')}
-            />
-            <h5>Red Clay Brick</h5>
-            {/* <p>1212 pieces</p> */}
-          </div>
-          <div className="categorySectionItems slide">
-            <img
-              src={AAC}
-              alt=""
-              onClick={()=>props.handletype('Fly Ash Brick')}
-            />
-            <h5>Fly Ash  Brick</h5>
-            {/* <p>1212 pieces</p> */}
-          </div>
-          <div className="categorySectionItems slide">
-            <img
-              src={AAC}
-              alt=""
-              onClick={()=>props.handletype('AAC Block')}
-            />
-            <h5>AAC Block</h5>
-            {/* <p>1212 pieces</p> */}
-          </div>
-          <div className="categorySectionItems slide">
-            <img
-              src={Conc}
-              alt=""
-              onClick={()=>props.handletype('Concrete Hollow Block')}
-            />
-            <h5>Concrete Hollow Blocks</h5>
-            {/* <p>1212 pieces</p> */}
-          </div>
-          <div className="categorySectionItems slide">
-            <img
-              src={REF}
-              alt=""
-              onClick={()=>props.handletype('Refractory Brick')}
-            />
-            <h5>Refractory Brick</h5>
-            {/* <p>1212 pieces</p> */}
-          </div>
-          <div className="categorySectionItems slide">
-            <img
-              src={PRO}
-              alt=""
-              onClick={()=>props.handletype('Porotherm Hollow Block')}
-            />
-            <h5>Porotherm Hollow Block</h5>
-            {/* <p>1212 pieces</p> */}
-          </div>
-          <div className="categorySectionItems slide">
-            <img
-              src={ENG}
-              alt=""
-              onClick={()=>props.handletype('Engineering Brick')}
-            />
-            <h5>Engineering Brick</h5>
-            {/* <p>1212 pieces</p> */}
-          </div>
-          <div className="categorySectionItems slide">
-            <img
-              src={ENG}
-              alt=""
-              onClick={()=>props.handletype('Sand Lime Brick')}
-            />
-            <h5>Sand Lime Brick</h5>
-            {/* <p>1212 pieces</p> */}
-          </div>
-          <div className="categorySectionItems slide">
-            <img
-              src={RCC}
-              alt=""
-              onClick={()=>props.handletype('RCC Pole')}
+function Bricks() {
+  const [age, setAge] = React.useState("");
+  function handleClick(event) {
+    event.preventDefault();
+    console.info("You clicked a breadcrumb.");
+  }
 
-            />
-            <h5>RCC Pole</h5>
-            {/* <p>1212 pieces</p> */}
-          </div>
-        </div>
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
+  return (
+    <>
+      <div
+        role="presentation"
+        onClick={handleClick}
+        style={{ padding: "10px" }}>
+        <Breadcrumbs aria-label="breadcrumb">
+          <Link underline="hover" color="inherit" href="/">
+            MUI
+          </Link>
+          <Link
+            underline="hover"
+            color="inherit"
+            href="/material-ui/getting-started/installation/">
+            Core
+          </Link>
+          <Typography color="text.primary">Breadcrumbs</Typography>
+        </Breadcrumbs>
       </div>
-    )
+
+      <div style={{ padding: "10px" }}>
+        <Typography variant="body2" gutterBottom>
+          <span style={{ color: "orange", fontSize: "20px" }}>
+            {" "}
+            Sanitaryware{" "}
+          </span>
+          (Showing 1 to 12 products of 295 Products)
+        </Typography>
+      </div>
+
+      <Grid
+        container-fluid
+        style={{
+          width: "100%",
+          height: "35px",
+          background: "#4C5864",
+          padding: "5px",
+        }}>
+        <ul
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            color: "white",
+          }}>
+          <li>Faucet</li>
+          <li>Shower</li>
+          <li>Sink</li>
+          <li>Washbasin </li>
+          <li>Water Closet & Bidet</li>
+          <li>Bath Tub</li>
+          <li>Urinal</li>
+          <li>Flush Cistern & Flush Tank</li>
+          <li>Fittings & Allied Products</li>
+        </ul>
+      </Grid>
+
+      <div>
+        <span style={{ float: "right", width:'250px' , padding:"10px"}}>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Sort by</InputLabel>
+
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={age}
+              label="Age"
+              size="small"
+              onChange={handleChange}>
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </FormControl>
+        </span>
+      </div>
+
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={3}>
+            <BricksFilter />
+          </Grid>
+          <Grid item xs={9}>
+            <Grid container spacing={2}>
+              <Grid item xs={3}>
+                <Card>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      style={{ height: "120px" }}
+                      image={brick}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h6" component="div">
+                        Red Clay Brick
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        <span>₹3,499</span>{" "}
+                        <span style={{ textDecoration: "line-through" }}>
+                          {" "}
+                          ₹8,999
+                        </span>{" "}
+                        <span style={{ color: "orange" }}> 61% off</span>
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions style={{ justifyContent: "center" }}>
+                    <Button
+                      size="small"
+                      variant="contained"
+                      width="100%"
+                      style={{ background: "#FF7F00" }}>
+                      ADD TO CART
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+              <Grid item xs={3}>
+                <Card>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      style={{ height: "120px" }}
+                      image={brick}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h6" component="div">
+                        Red Clay Brick
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        <span>₹3,499</span>{" "}
+                        <span style={{ textDecoration: "line-through" }}>
+                          {" "}
+                          ₹8,999
+                        </span>{" "}
+                        <span style={{ color: "orange" }}> 61% off</span>
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions style={{ justifyContent: "center" }}>
+                    <Button
+                      size="small"
+                      variant="contained"
+                      width="100%"
+                      style={{ background: "#FF7F00" }}>
+                      ADD TO CART
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+              <Grid item xs={3}>
+                <Card>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      style={{ height: "120px" }}
+                      image={brick}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h6" component="div">
+                        Red Clay Brick
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        <span>₹3,499</span>{" "}
+                        <span style={{ textDecoration: "line-through" }}>
+                          {" "}
+                          ₹8,999
+                        </span>{" "}
+                        <span style={{ color: "orange" }}> 61% off</span>
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions style={{ justifyContent: "center" }}>
+                    <Button
+                      size="small"
+                      variant="contained"
+                      width="100%"
+                      style={{ background: "#FF7F00" }}>
+                      ADD TO CART
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+              <Grid item xs={3}>
+                <Card>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      style={{ height: "120px" }}
+                      image={brick}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h6" component="div">
+                        Red Clay Brick
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        <span>₹3,499</span>{" "}
+                        <span style={{ textDecoration: "line-through" }}>
+                          {" "}
+                          ₹8,999
+                        </span>{" "}
+                        <span style={{ color: "orange" }}> 61% off</span>
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions style={{ justifyContent: "center" }}>
+                    <Button
+                      size="small"
+                      variant="contained"
+                      width="100%"
+                      style={{ background: "#FF7F00" }}>
+                      ADD TO CART
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+              <Grid item xs={3}>
+                <Card>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      style={{ height: "120px" }}
+                      image={brick}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h6" component="div">
+                        Red Clay Brick
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        <span>₹3,499</span>{" "}
+                        <span style={{ textDecoration: "line-through" }}>
+                          {" "}
+                          ₹8,999
+                        </span>{" "}
+                        <span style={{ color: "orange" }}> 61% off</span>
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions style={{ justifyContent: "center" }}>
+                    <Button
+                      size="small"
+                      variant="contained"
+                      width="100%"
+                      style={{ background: "#FF7F00" }}>
+                      ADD TO CART
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+              <Grid item xs={3}>
+                <Card>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      style={{ height: "120px" }}
+                      image={brick}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h6" component="div">
+                        Red Clay Brick
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        <span>₹3,499</span>{" "}
+                        <span style={{ textDecoration: "line-through" }}>
+                          {" "}
+                          ₹8,999
+                        </span>{" "}
+                        <span style={{ color: "orange" }}> 61% off</span>
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions style={{ justifyContent: "center" }}>
+                    <Button
+                      size="small"
+                      variant="contained"
+                      width="100%"
+                      style={{ background: "#FF7F00" }}>
+                      ADD TO CART
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Box>
+    </>
+  );
 }
 
-export default Bricks
+export default Bricks;

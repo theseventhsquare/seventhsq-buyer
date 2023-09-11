@@ -5,7 +5,7 @@ import { useParams,useLocation } from "react-router-dom";
 import Hardware from "./SubCategories/Hardware";
 
 import Bricks from "./SubCategories/Bricks";
-import BricksFilter from "./SubCategories/BricksFilter";
+// import BricksFilter from "./SubCategories/BricksFilter";
 import Steel from "./SubCategories/Steel";
 import ReadyMixConcrete from "./SubCategories/ReadymixConrete";
 import SteelFilter from "./SubCategories/SteelFilter";
@@ -556,19 +556,7 @@ function CategoriesLanding(props) {
               handlehardwarematerial={handlehardwarematerial}
               filterbrands={filterbrands}
             />
-          ) : name == "Bricks" && showf ? (
-            <BricksFilter
-              handlemin={handlemin}
-              handlemax={handlemax}
-              brands={brands ? brands : "none"}
-              handlebrands={handlebrands}
-              handleapply={handleapply}
-              handleremove={handleremove}
-              check={apply}
-              handlebricksize={handlebricksize}
-              filterbrands={filterbrands}
-            />
-          ) : name == "Steel" && showf ? (
+          )  : name == "Steel" && showf ? (
             <SteelFilter
               handlemin={handlemin}
               handlemax={handlemax}
@@ -731,7 +719,7 @@ function CategoriesLanding(props) {
             />
           ) : null}
 
-          <div className="bodyRight">
+          {/* <div className="bodyRight">
             <div className="bodyRightHeading">
               <p>Options in {name} </p>
               <div className="sortOption">
@@ -762,7 +750,7 @@ function CategoriesLanding(props) {
                   onChange={handleorder}
                   style={{ fontSize: "15px !important" }}
                 >
-                  {/* <select class="form-select" > */}
+                 
                   <option
                     value="neutral"
                     name="neutral"
@@ -787,13 +775,11 @@ function CategoriesLanding(props) {
                 </select>
               </div>
             </div>
-            {/* <div>
-              <Cat name={name} />
-              </div> */}
+            
             <div class="gallery">
               {<Cat product={product} handleapply={handleapply} />}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

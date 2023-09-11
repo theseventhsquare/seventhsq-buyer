@@ -3,6 +3,7 @@ import React, { createContext, useReducer, useEffect,useContext, useState } from
 import Cement from "../src/Components/Landing/Body/Categories/SubCategories/Hardware";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import OrderTrack from "./Components/OrderTrack/OrderTrack";
+import Customer from './Components/Customer/Customer'
 import Landing from "./Components/Landing/Landing";
 import Navbar from "./Components/Landing/Navbar/Navbar";
 import Product from "./Components/Product/Product";
@@ -10,7 +11,7 @@ import Login from "./Components/Landing/Login/Login";
 import RegisterOption from "./Components/Landing/Login/RegisterOption";
 import RegisterIndividual from "./Components/Landing/Login/RegisterIndividual";
 import RegisterInstitutional from "./Components/Landing/Login/RegisterInstitutional";
-// import Cart from "./Components/Cart/Cart";
+import Cart from "./Components/Cart/Cart";
 import Footer from "./Components/Landing/Footer/Footer";
 import Blog from "./Components/Blog/Blog";
 import About from "./Components/About/About";
@@ -118,6 +119,12 @@ function App(props) {
           <Switch>
             <Route  onClick={() => {window.location.reload()}} path="/track-order">
               <OrderTrack />
+            </Route>
+            <Route  onClick={() => {window.location.reload()}} path="/customer">
+              <Customer />
+            </Route>
+            <Route  onClick={() => {window.location.reload()}} path="/cart">
+              <Cart />
             </Route>
          
             <Route  onClick={() => {window.location.reload()}} path="/catogoriesLanding/:name">

@@ -1,223 +1,145 @@
-import React, { useEffect, useState, useCallback } from "react";
-import "../Categories.css";
-function BricksFilter(props) {
-  const [bricksize, setbricksize] = useState([]);
-  let bricks = [];
-  const fetchbricksize = async () => {
-    let city = localStorage.getItem("city");
+import React from "react";
+import {
+  Paper,
+  Typography,
+  Box,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Button,
+} from "@mui/material";
 
-    console.log(`city${city}`);
-    if (city == null) {
-      city = "Pan India";
-    }
-    const response = await fetch(
-      "https://seller.seventhsq.com/inventory/api/inventory_detail_by_category/Bricks_&_Blocks/" +
-        city
-    );
-    const data = await response.json();
-    data.forEach(myFunction);
-    function myFunction(item) {
-      bricks.push(item.length);
-      let unique = [...new Set(bricks)];
-      setbricksize(unique);
-    }
+function BricksFilter() {
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
   };
-  useEffect(() => {
-    fetchbricksize();
-  }, []);
-
   return (
-    <div
-      className="bodyLeft shadow"
-      style={{ padding: "10px 10px !important" }}
-    >
-      <div className="leftFilterHeading">
-        <h3 style={{fontFamily:"open sans"}}>FILTER PRODUCTS</h3>
-      </div>
-      <hr class="hrf"
-        style={{
-          color: "#000000",
-          backgroundColor: "#000000",
-          width: 200,
-          height: 2.0,
-          borderColor: "#000000",
-          margin: "auto",
-          marginBottom: 4,
-        }}
-      />
-      <div className="filerBody">
-        <section>
-          <section>
-            <section class="mb-4">
-              <h3 class="mb-3" style={{ fontWeight: 500 }}>
-                SIZE
-              </h3>
-
-              {bricksize
-                ? bricksize.map((curr, index) => {
-                    return (
-                      <div>
-
-                        <div class="form-check pl-0 mb-3 ">
-                          <div class="custom-control custom-checkbox mx-2">
-                            <input
-                              style={{
-                                fontFamily:"open sans",
-                                width: "15px !important",
-                                height: "15px !important",
-                                backgroundColor: "#D7B1D7",
-                                // paddingBottom: "10px",
-                              }}
-                              type="checkbox"
-                              // class="form-check-input filled-in"
-                              id={curr}
-                              onChange={() => props.handlebricksize(curr)}
-                              class="custom-control-input"
-                              name="default"
-                              // border-color: #D7B1D7;
-
-                              // defaultChecked={props.bricksizes.includes(curr)?true:false}
-                            />
-                            <label
-                              style={{
-                                fontSize: "15px",
-                                paddingLeft: "5px",
-                                justifyContent: "center",
-                                alignContent: "center",
-                                fontFamily:"open sans",
-                              }}
-                              class="custom-control-label text-uppercase card-link-secondary labname"
-                              for={curr}
-                            >
-                              {curr}
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })
-                : null}
-            </section>
-
-            <h3 class="mb-3" style={{ fontWeight: 500 }}>
-              BRANDS
-            </h3>
-            {props.brands
-              ? props.brands.map((curr, index) => {
-                  return (
-                    <div>
-                    
-                      <div class="form-check pl-0 mb-3">
-                         <div class="custom-control custom-checkbox  mx-2">
-                            <input
-                              style={{
-                                width: "15px !important",
-                                height: "15px !important",
-                                backgroundColor: "#D7B1D7",
-                               
-                              }}
-                              type="checkbox"
-                      
-                              id={curr}
-                              onChange={() => props.handlebrands(curr)}
-                              class="custom-control-input"
-                              name="default"
-                  
-                            />
-                            <label
-                              style={{
-                                fontFamily:"open sans",
-                                fontSize: "15px",
-                                paddingLeft: "5px",
-                                justifyContent: "center",
-                                alignContent: "center",
-                              }}
-                              class="custom-control-label card-link-secondary lab2" 
-                                 for={curr}
-                        >
-                        {curr}
-                            </label>
-                          </div>
-                        </div>
-                    </div>
-                  );
-                })
-              : null}
-            <section class="mb-4">
-              <h3 class="mb-1" style={{ fontWeight: 500 }}>
-                PRICE
-              </h3>
-
-              <form>
-               <div class="d-flex align-items-center mt-1 pb-1 maxmin">
-                  <div class="md-form md-outline my-0">
-                    <input
-                      id="from"
-                      type="text"
-                      class="form-control mb-2"
-                      name="min"
-                      onChange={props.handlemin}
-                    />
-                    <label for="form" id="min">
-                      ₹ Min
-                    </label>
-                  </div>
-                  <p class="px-2 mb-0 text-muted"> - </p>
-                  <div class="md-form md-outline my-0">
-                    <input
-                      id="to"
-                      type="text"
-                      class="form-control mb-2"
-                      name="max"
-                      onChange={props.handlemax}
-                    />
-                    <label for="to" id="min">
-                      ₹ Max
-                    </label>
-                  </div>
-                </div>
-              </form>
-            </section>
-
-            <div class="d-flex justify-content-evenly my-3 filterbutt">
-              <button
-                type="button"
-                class="btn btn-dark filterbuttt"
-                onClick={props.handleapply}
-                style={{ marginRight: "5%",fontSize: "10px" ,marginBotton:"10px"}}
-                // class="filterbutt"
-              >
-                Apply Filters 
-              </button>
-              <button
-              //  class="filterbutt"
-                type="button"
-                class="btn btn-dark filterbuttt"
-                onClick={props.handleremove}
-                style={{ marginRight: "5%",fontSize: "10px" ,marginBotton:"10px"}}
-              >
-                Remove Filters
-              </button>
+    <div>
+      <Paper
+        elevation={3}
+        style={{ height: "440px", width: "350px", textAlign: "center" }}>
+          <div style={{background:'#686c72',color:'white'}}>
+          <Typography variant="h5" gutterBottom p={2}>
+          Filter Products
+        </Typography>
+          </div>
+      
+        <Box
+          component="form"
+          sx={{
+            "& .MuiTextField-root": { m: 1, width: "25ch" },
+          }}
+          noValidate
+          autoComplete="off">
+          <div style={{ padding: "5px" }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">BRANDS</InputLabel>
+              <Select
+                size="small"
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={age}
+                label="Age"
+                onChange={handleChange}>
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
             </div>
-
-            {/* <section class="mb-4">
-                    <h3 class="mb-3">Price</h3>
-
-                    <div class="slider-price d-flex align-items-center my-4">
-                      <span class="font-weight-normal small text-muted mr-2">
-                        $0
-                      </span>
-                      <form class="multi-range-field w-100 mb-1">
-                        <input id="multi" class="multi-range" type="range" />
-                      </form>
-                      <span class="font-weight-normal small text-muted ml-2">
-                        $100
-                      </span>
-                    </div>
-                  </section> */}
-          </section>
-        </section>
-      </div>
+            <div style={{ padding: "5px" }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">PRICE</InputLabel>
+              <Select
+                size="small"
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={age}
+                label="Age"
+                onChange={handleChange}>
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
+            </div>
+            
+            <div style={{ padding: "5px" }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">DISCOUNT</InputLabel>
+              <Select
+                size="small"
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={age}
+                label="Age"
+                onChange={handleChange}>
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
+            </div>
+           
+            <div style={{ padding: "5px" }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">MATERIAL</InputLabel>
+              <Select
+                size="small"
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={age}
+                label="Age"
+                onChange={handleChange}>
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
+            </div>
+            
+            <div style={{ padding: "5px" }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">SIZE</InputLabel>
+              <Select
+                size="small"
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={age}
+                label="Age"
+                onChange={handleChange}>
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
+            </div>
+            
+            <div style={{ padding: "5px" }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">RATINGS</InputLabel>
+              <Select
+                size="small"
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={age}
+                label="Age"
+                onChange={handleChange}>
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
+            </div>
+            <div style={{ padding: "5px" }}>
+<Button style={{background:'orange',color:'white',width:'100%'}}> FILTER</Button>
+              </div>
+         
+        </Box>
+      </Paper>
     </div>
   );
 }

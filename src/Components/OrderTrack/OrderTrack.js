@@ -1,143 +1,125 @@
 import React from "react";
-import "./OrderTrack.css";
-import { Helmet } from 'react-helmet';
-function OrderTrack() {
-  return (
-    <div class="orderTrack container">
+import {
+  Grid,
+  Paper,
+  Typography,
+  FormControl,
+  TextField,
+  InputAdornment,
+  InputLabel,
+  Select,
+  MenuItem,
+} from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import LogoutIcon from "@mui/icons-material/Logout";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import SearchIcon from "@mui/icons-material/Search";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import orders from "../../images/Orders.png"
 
-  <Helmet>
-    <title>Track Order | Seventh Square </title>
-    {/* Track Order on Seventh Square */}
-    <meta name="description" content="Track Order on Seventh Square" />
-  </Helmet>
-      <div>
-        <p className="h4">My orders / Tracking</p>
-        <hr />
-      </div>
-      <h6>Order ID: OD45345345435</h6> <hr />
-      <div className="card">
-        <div className="block">
-          <p>
-            Estimated Delivery Time : <br />
-            <span>29 Dec 2021</span>
-          </p>
-        </div>
-        <div className="block">
-          <p>
-            Shipping by : <br />
-            <span>ACC Cement</span>
-          </p>
-        </div>
-        <div className="block">
-          <p>
-            Status : <br />
-            <span>Picked up by the courier</span>
-          </p>
-        </div>
-      </div>
-      <div className="container mobileProgress">
-        <ul class="progress-indicator stepped nocenter stacked">
-        <li className="completed my-4">
-            <span class="bubble"></span>
-            <span class="stacked-text">
-              <span class="subdued">Order Received</span>
-            </span>
-          </li>
-          <li className="completed my-4">
-            <span class="bubble"></span>
-            <span class="stacked-text">
-              <span class="subdued">Order accepted</span>
-            </span>
-          </li>
-          <li className="completed my-4">
-            <span class="bubble"></span>
-            <span class="stacked-text">
-              <span class="subdued">Packed & Shipped</span>
-            </span>
-          </li>
-          <li className="my-4">
-            <span class="bubble"></span>
-            <span class="stacked-text">
-              <span class="subdued">Out for Delivery</span>
-            </span>
-          </li>
-          <li class="my-4">
-            <span class="bubble"></span>
-            <span class="stacked-text">
-              <span class="subdued">Delivered</span>
-            </span>
-          </li>
-        </ul>
-        
-      </div>
-      <div className="container desktopProgress">
-        <ul class="progress-indicator">
-          <li class="completed">
-            <span class="bubble"></span>
-            Order Recieved
-          </li>
-          <li class="completed">
-            <span class="bubble"></span>
-            Order Accepted
-          </li>
-          <li class="completed">
-            <span class="bubble"></span>
-            Packed & Shipped
-          </li>
-          <li>
-            <span class="bubble"></span>
-            Out For Delivery
-          </li>
-          <li>
-            <span class="bubble"></span>
-            Delivered
-          </li>
-        </ul>
-      </div>
-      <div className="product-card col-md-12">
-        <h4 className="h4">Product Details</h4>
-        <div class="product-section col-md-12">
-          <ul className="col-md-6">
-            <li>
-              <img src="https://www.cemx.in/front/img/cem2.png" alt=""></img>
-            </li>
-            {/* <p><b>Quantity</b> : <span>20 Pcs.</span></p> */}
-          </ul>
-          <ul className="col-md-6">
-            <li>
-              <p>
-                Product Title : <span>Acc Cement Pack of two</span>
-              </p>
-            </li>
-            <li>
-              <p>
-                Price : <span>Acc Cement Pack of two</span>
-              </p>
-            </li>
-            <li>
-              <p>
-                Packeging Size : <span>21 Packets</span>
-              </p>
-            </li>
-            <li>
-              <p>
-                Estimated Delivery : <span>29 Dec 2021</span>
-              </p>
-            </li>
-            <li>
-              <p>
-                <a href="/moredetails">More Details</a>{" "}
-              </p>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="track_footer_section">
-        <button onClick="/cart" class="btn backToCart">
-          Back to Cart
-        </button>
-      </div>
-    </div>
+function OrderTrack() {
+  const [age, setAge] = React.useState("");
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
+  return (
+   
+      <>
+        <Grid container spacing={2} p={3}>
+          <Grid item xs={3}>
+            <Paper elevation={3} style={{ padding: "10px" }}>
+              <ul>
+                <li>
+                  {" "}
+                  <Link to="/profile">
+                    <span style={{ color: "black" }}>
+                      <AccountCircleIcon /> PROFILE
+                    </span>{" "}
+                  </Link>
+                </li>{" "}
+                <br />
+                <li>
+                  <Link to="/track-order">
+                    <span style={{ color: "orange" }}>
+                      <LocalShippingIcon /> ORDERS
+                    </span>
+                  </Link>
+                </li>
+                <br />
+                <li>
+              <Link to="/customer">
+                <span style={{ color: "black" }}>
+                  <SupportAgentIcon /> CUSTOMER SERVICE
+                </span>
+                </Link>
+              </li>
+                <br />
+                <li>
+                  <span>
+                    <LogoutIcon /> LOGOUT
+                  </span>
+                </li>
+              </ul>
+            </Paper>
+          </Grid>
+          <Grid item xs={9}>
+            <Paper elevation={3} style={{ padding: "10px" , height:'600px'}}>
+              <div style={{ padding: "20px" }}>
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  style={{ color: "orange" }}>
+                  Order
+                </Typography>
+                <div>
+                  <TextField
+                    size="small"
+                    fullWidth
+                    variant="outlined"
+                    placeholder="Search"
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <SearchIcon />
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                </div>
+                <div>
+                  <span
+                    style={{ float: "right", width: "250px", padding: "10px" }}>
+                    <FormControl fullWidth>
+                      <InputLabel id="demo-simple-select-label">
+                        Sort by
+                      </InputLabel>
+
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={age}
+                        label="Age"
+                        size="small"
+                        onChange={handleChange}>
+                        <MenuItem value={10}>Ten</MenuItem>
+                        <MenuItem value={20}>Twenty</MenuItem>
+                        <MenuItem value={30}>Thirty</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </span>
+                </div>
+
+                <div>
+                  <img src={orders} style={{width:'100%'}}/>
+                </div>
+              </div>
+            </Paper>
+          </Grid>
+        </Grid>
+      </>
+    
   );
 }
 
