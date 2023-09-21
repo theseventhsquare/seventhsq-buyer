@@ -1,4 +1,5 @@
 import { fontFamily } from "@mui/system";
+import CommingSoonImg from "../../images/Buyer-Landing-page.png"
 
 import axios from 'axios';
 import React, { useState } from 'react';
@@ -42,7 +43,7 @@ function FirstLook() {
         <div className="col-md-6">
           <img className="mt-5 ml-5"
             style={{ width: "83%" }}
-            src="https://www.linkpicture.com/q/Buyer-Landing-page.png">
+            src={CommingSoonImg}>
           </img>
         </div>
 
