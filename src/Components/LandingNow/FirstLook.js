@@ -4,6 +4,7 @@ import CommingSoonImg from "../../images/Buyer-Landing-page.png"
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
+import "./FirstLook.css"
 function FirstLook() {
 
   const [email, setEmail] = useState('');
@@ -46,25 +47,12 @@ function FirstLook() {
 
 
         <div
-          className="col-md-6 col-lg-6 pr-lg-0 mr-lg-0 "
-          style={{ marginTop: "140px" }}
+          className="col-md-6 col-lg-6 pr-lg-0 mr-lg-0 first-head-div "
         >
-          <h1
-            style={{
-              fontWeight: "700",
-              fontSize: "56px",
-              fontFamily: "crimson text ",
-            }}
-          >
+          <h1 className="firsthead">
             COMING SOON!
           </h1>
-          <p
-            style={{
-              fontSize: "28px",
-              fontWeight: "500",
-              fontFamily: "Arial ",
-            }}
-          >
+          <p className="first-head-para">
             {" "}
             Shop for Building Material & Home <br></br>Improvement Products
             online with us!
@@ -72,63 +60,31 @@ function FirstLook() {
         </div>
       </div>
       <div className="row col-md-12" style={{ backgroundColor: "#F8F8F8" }}>
-        <h1
-          style={{
-            justifyContent: "center",
-            display: "flex",
-            textAlign: "justify",
-            fontFamily: "Arial",
-          }}
-        >
+        <p className="second-para">
           {" "}
           Get Alerted on Launch and access{" "}
-        </h1>
-        <h1
-          style={{
-            justifyContent: "center",
-            display: "flex",
-            textAlign: "justify",
-            fontFamily: "Arial",
-          }}
-        >
+        </p>
+        <p className="second-para">
           exciting launch offers!
-        </h1>
+        </p>
 
 
         <form onSubmit={handleSubmit}>
           <div className="row">
             <input
               type="email"
-              class="form-control"
+              class="form-control input1"
               value={email}
               name={email}
               placeholder="Enter Email"
               aria-label="Search Your Product"
               aria-describedby="button-addon2"
               onChange={(e) => setEmail(e.target.value)}
-
-              style={{
-                width: "35%",
-                justifyContent: "center",
-                display: "flex",
-                textAlign: "justify",
-                marginLeft: "28%",
-                marginTop: "11px",
-                fontSize: "16px",
-                fontFamily: "Arial",
-              }}
             />
             <button
-              className="btn btn-dark"
+              className="btn btn-dark button1"
               type="submit"
-              style={{
-                width: "143px",
-                height: "34px",
-                marginTop: "10px",
-                fontSize: "16px",
-                fontFamily: "Arial",
-                textTransform: "none"
-              }}
+              
             >
               Get Notified!
             </button>
@@ -149,20 +105,12 @@ function FirstLook() {
             }}>Thank you for submitting the form!</p>
           )}
         </div>
-        <h3
-          style={{
-            justifyContent: "center",
-            display: "flex",
-            textAlign: "justify",
-            marginTop: "30px",
-            fontFamily: "Arial",
-          }}
-        >
+        <p className="lastpara">
           Selling Building Materials ? Sell with us here :
-          <span onClick={handleButtonClick} style={{ backgroundColor: "#F8F8F8", color: "black", marginTop: "-5px", border: "none", padding: "5px 10px", borderRadius: "5px", textDecoration: "none", cursor: "pointer" }}>
+          <span className="lastparaspan" onClick={handleButtonClick} >
             seller.seventhsq.com
           </span>
-        </h3>
+        </p>
 
       </div>
     </div>

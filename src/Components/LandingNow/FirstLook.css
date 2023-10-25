@@ -1,0 +1,404 @@
+@media screen and (max-width: 768px) {
+    .first-head-div {
+        margin-top: 5%;
+        word-break: keep-all;
+
+    }
+
+    .firsthead {
+        font-weight: 700;
+        font-size: 32px;
+        font-family: "crimson text ";
+        text-align: center;
+        word-break: keep-all;
+
+
+    }
+
+    .first-head-para {
+        font-size: 0.8rem;
+        color: #665e5e;
+        font-weight: 100;
+        font-family: Arial;
+        text-align: center;
+        margin-left: 0.325rem;
+        word-break: keep-all;
+
+
+    }
+
+    .second-para {
+        margin-left: 0.3rem;
+        font-family: Arial;
+        text-align: center;
+        font-size: 1rem;
+        margin-top: -10px;
+        font-weight: 100;
+        word-break: keep-all;
+
+
+    }
+
+    .lastpara {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 80%;
+        margin-left: 4%;
+      }
+    
+      .lastparaspan {
+        flex: 1; /* Allow the span to take up the remaining space */
+        white-space: nowrap; /* Prevent the span from breaking into multiple lines */
+        font-size: 95%;
+        margin-bottom: 25%;
+        word-break: keep-all;
+
+      }
+      .lastparaspan:hover {
+        text-decoration: underline; /* Underline on hover */
+      }
+
+    .input1 {
+        width: 55%;
+        margin-left: 5%;
+        margin-top: 10px;
+        font-size: 16px;
+        font-family: Arial;
+        word-break: keep-all;
+
+
+    }
+
+    .button1 {
+        width: 100px;
+        height: 34px;
+        margin-top: 10px;
+        font-size: 14px;
+        font-family: Arial;
+        text-transform: none;
+
+    }
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .first-head-div {
+        margin-top: 20%;
+        word-break: keep-all;
+
+    }
+    .firsthead {
+        text-align: center;
+        font-weight: 650;
+        font-size: 3vw;
+        font-family: "crimson text ";
+        word-break: keep-all;
+
+
+
+    }
+
+    .first-head-para {
+        text-align: center;
+        color: #665e5e;
+        font-size: 2vw;
+        font-weight: 100;
+        font-family: Arial;
+        word-break: keep-all;
+
+
+    }
+    
+
+    .second-para {
+        justify-content: center;
+        display: flex;
+        text-align: justify;
+        font-family: Arial;
+        font-size: 21px;
+        font-weight: 100;
+        margin-top: -15px;
+        word-break: keep-all;
+
+
+
+    }
+    .input1 {
+        width: 55%;
+        justify-content: center;
+        display: flex;
+        text-align: justify;
+        margin-left: 15%;
+        margin-top: 11px;
+        font-size: 16px;
+        font-family: Arial;
+        word-break: keep-all;
+        border-radius: 0px;
+
+
+    }
+
+    .button1 {
+        width: 180px;
+        height: 33px;
+        margin-top: 11px;
+        font-size: 16px;
+        font-family: Arial;
+        text-transform: none;
+        border-radius: 0px;
+
+    }
+    .thirdhead-div{
+        text-align: center;
+    }
+
+    .lastpara {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: baseline;
+        font-size: 90%;
+        margin-left: 20%;
+        margin-right: 0%;
+        margin-top: 4%;
+        padding-right: 0%;
+        
+      }
+    
+      .lastparaspan {
+        flex: 1; /* Allow the span to take up the remaining space */
+        white-space: nowrap; /* Prevent the span from breaking into multiple lines */
+        font-size: 100%;
+        word-break: keep-all;
+        margin-left: 1%;
+        padding-left: 0%;
+       }
+       .thirdhead span:hover {
+        text-decoration: underline; /* Underline on hover */
+      }
+
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .first-head-div {
+        margin-top: 5%;
+        word-break: keep-all;
+        text-align: center;
+
+    }
+    .firsthead {
+        margin-top: 25%;
+        font-weight: 700;
+        font-size: 56px;
+        font-family: "crimson text ";
+        word-break: keep-all;
+
+
+
+    }
+
+    .first-head-para {
+        font-size: 22px;
+        color: #665e5e;
+        font-weight: 100;
+        font-family: Arial;
+        word-break: keep-all;
+
+
+
+    }
+    
+
+    .second-para {
+        justify-content: center;
+        display: flex;
+        text-align: justify;
+        font-family: Arial;
+        align-items: center;
+        font-size: 24px;
+        word-break: keep-all;
+        margin-top: -15px;
+
+
+
+    }
+    .input1 {
+        width: 45%;
+    
+        justify-content: center;
+        display: flex;
+        text-align: justify;
+        margin-left: 21%;
+        margin-top: 14px;
+        font-size: 22px;
+        font-family: Arial;
+        word-break: keep-all;
+        border-radius: 0px;
+
+
+    }
+
+    .button1 {
+        width: 160px;
+        height: 34px;
+        margin-top: 14px;
+        font-size: 17px;
+        font-family: Arial;
+        text-transform: none;
+        border-radius: 0px;
+    }
+
+    .lastpara {
+        justify-content: center;
+        display: flex;
+        text-align: justify;
+        margin-top: 30px;
+        margin-left:5% ;
+        font-family: Arial;
+        word-break: keep-all;
+    }
+    .lastparaspan {
+        background-color: #F8F8F8; 
+        color: black; 
+        margin-top: -5px; 
+        border: none;
+        padding: 5px 10px; 
+        border-radius: 5px; 
+        text-decoration: none;
+        cursor: pointer;
+        word-break: keep-all;
+    }
+    .lastparaspan:hover {
+        text-decoration: underline; /* Underline on hover */
+      }
+}
+
+@media screen and (min-width: 1200px) {
+    .firsthead {
+        font-weight: 700;
+        font-size: 72px;
+        font-family: "crimson text ";
+        text-align: center;
+        letter-spacing: 4px;
+
+        word-break: keep-all;
+
+
+
+    }
+
+    .first-head-div {
+        margin-top: 190px;
+        word-break: keep-all;
+
+
+
+    }
+
+    .first-head-para {
+        text-align: center;
+        font-size: 28px;
+        color: #665e5e;
+        font-weight: 100;
+        font-family: Arial;
+        letter-spacing: 2px;
+
+        word-break: keep-all;
+    }
+    .second-para{
+        justify-content: center;
+        display: flex;
+        text-align: justify;
+        font-family: Arial;
+        display: flex;
+        text-align: justify;
+        font-family: Arial;
+        font-size: 14px;
+        letter-spacing: 2px;
+        margin-top: -16px;
+        word-break: keep-all;
+            
+    }
+
+    .input1 {
+        width: 45%;
+        height: 36px;
+        justify-content: center;
+        display: flex;
+        text-align: justify;
+        margin-left: 18%;
+        margin-top: 10px;
+        font-size: 16px;
+        font-family: Arial;
+        word-break: keep-all;
+        border-radius: 0px;
+    }
+
+    .button1 {
+        width: 240px;
+        height: 36px;
+        margin-top: 10px;
+        font-size: 16px;
+        font-family: Arial;
+        text-transform: none;
+        border-radius: 0px;
+    }
+
+    .lastpara {
+        justify-content: center;
+        display: flex;
+        text-align: center;
+        margin-left: 2%;
+        letter-spacing: 2px;
+        margin-top: 30px;
+        font-family: Arial;
+        word-break: keep-all;
+    }
+    .lastparaspan {
+        background-color: #F8F8F8; 
+        color: black; 
+        margin-top: -5px; 
+        border: none;
+        padding: 5px 10px; 
+        letter-spacing: 3px;
+        border-radius: 5px; 
+        text-decoration: none;
+        cursor: pointer;
+        word-break: keep-all;
+    }
+    .thirdhead span:hover {
+        text-decoration: underline; /* Underline on hover */
+      }
+}
+@media screen and (min-width: 1200px) and (max-width:1360px) {
+    .firsthead {
+        font-weight: 700;
+        font-size: 60px;
+        font-family: "crimson text ";
+        text-align: center;
+        letter-spacing: 4px;
+
+        word-break: keep-all;
+
+
+
+    }
+
+    .first-head-div {
+        margin-top: 190px;
+        word-break: keep-all;
+
+
+
+    }
+    .first-head-para {
+        text-align: center;
+        font-size: 22px;
+        color: #665e5e;
+        font-weight: 100;
+        font-family: Arial;
+        letter-spacing: 2px;
+
+        word-break: keep-all;
+    }
+}
